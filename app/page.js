@@ -100,22 +100,22 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="h-[398px] w-full bg-[#e31317] flex items-center justify-center">
-        <div className="flex items-center justify-center gap-[125px] pl-22">
+      <section className="w-full bg-[#e31317] px-4 py-12 sm:py-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
 
             return (
               <div
                 key={index}
-                className="flex w-[190px] flex-col items-center text-center text-white"
+                className="flex w-full flex-col items-center text-center text-white"
               >
                 <Icon
                   size={58}
-                  className="mb-[34px]"
+                  className="mb-4 sm:mb-6"
                 />
 
-                <div className="text-[62px] font-normal leading-none whitespace-nowrap">
+                <div className="whitespace-nowrap text-3xl font-normal leading-none sm:text-5xl lg:text-6xl">
                   <CountUp
                     end={stat.number}
                     duration={2}
@@ -125,7 +125,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="mt-[10px] text-[20px] font-semibold leading-none whitespace-nowrap">
+                <div className="mt-2 text-sm font-semibold leading-tight sm:text-base lg:text-lg">
                   {stat.label}
                 </div>
               </div>
@@ -136,13 +136,13 @@ export default function Home() {
 
           <section className='py-20'>
         <h1 className='text-gray-600 text-3xl text-center font-semibold font-sans'>Explore Our Profile Tests </h1>
-        <div className='flex justify-center gap-4 flex-wrap mt-10'>
+        <div className='mt-10 flex flex-wrap justify-center gap-4 px-4'>
           {profileTests.map((tests, index) => {
             const isHovered = hoveredIndex === index;
             return (
               <div
                 key={index}
-                className="h-60 w-90 rounded-xl bg-cover bg-center bg-no-repeat p-6 flex flex-col justify-center items-center text-white shadow-lg cursor-pointer overflow-hidden relative transition-all duration-300 transform "
+                className="relative flex h-60 w-full max-w-[22rem] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-md bg-cover bg-center bg-no-repeat p-6 text-white shadow-lg transition-all duration-300"
                 style={{ 
                   backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85)), url('${tests.url}')` 
                 }}

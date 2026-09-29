@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const links = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
@@ -24,7 +25,7 @@ const Navbar = () => {
   }, [announcementText]);
   return (
     <>
-    <div className="relative flex py-4 items-center justify-center overflow-hidden bg-[#8f8f8f] px-4 text-center text-sm font-semibold text-white ">
+    <div className="relative flex min-h-14 items-center justify-center overflow-hidden bg-[#8f8f8f] px-4 py-3 text-center text-xs font-semibold text-white sm:text-sm">
         <span
           className={`absolute inset-0 flex items-center justify-center px-4 transition-opacity duration-700 ${
             !announcementText ? 'opacity-100' : 'opacity-0 invisible'
@@ -42,22 +43,22 @@ const Navbar = () => {
         </span>
       </div>
 
-      <header className="w-full bg-white px-4 py-12 lg:px-8 xl:px-14">
-        <div className="mx-auto flex max-w-[1700px] items-center justify-between gap-6">
+      <header className="w-full bg-white px-4 py-5 sm:px-6 lg:px-8 lg:py-10 xl:px-14">
+        <div className="mx-auto flex max-w-[1700px] flex-wrap items-center justify-between gap-5">
           <div className="flex shrink-0 items-center gap-4">
             <img src="/logo.webp" alt="Sindlab logo" className="h-[60px] w-auto object-contain xl:h-[80px]" />
           </div>
 
-          <div className="flex flex-1 items-center justify-center gap-6 xl:gap-8">
+          <div className="order-3 flex w-full flex-wrap items-center justify-center gap-x-6 gap-y-4 lg:order-none lg:w-auto lg:flex-1 xl:gap-8">
             <div className="flex items-start gap-3">
               <span className="mt-1 flex h-7 w-7 items-center justify-center text-[#2d2d2d]">
                 <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current stroke-[1.8]" aria-hidden="true">
                   <path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Zm0-8.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
                 </svg>
               </span>
-              <div className="flex flex-col leading-tight">
+              <div className="flex min-w-0 flex-col leading-tight">
                 <span className="text-[0.9rem] font-bold text-[#1b1b1b]">Visit Us:</span>
-                <span className="text-[0.9rem] font-bold text-red-500 xl:text-[1.1rem]">
+                <span className="text-sm font-bold text-red-500 xl:text-[1.1rem]">
                   D.M.C Society, Tariq Road, Karachi
                 </span>
               </div>
@@ -71,7 +72,7 @@ const Navbar = () => {
               </span>
               <div className="flex flex-col leading-tight">
                 <span className="text-[0.9rem] font-bold text-[#1b1b1b]">Call Us:</span>
-                <span className="text-[0.9rem] font-bold text-red-500 xl:text-[1.1rem]">
+                <span className="break-all text-sm font-bold text-red-500 xl:text-[1.1rem]">
                   (021) 3455 7771-3
                 </span>
               </div>
@@ -92,16 +93,25 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="bg-red-500 p-3 text-white rounded-sm" 
-          >
-            OUR BRANCHES 
-          </button>
+          <div className="ml-auto flex items-center gap-3">
+            <Link href="/branches" className="hidden rounded-sm bg-red-500 px-4 py-3 text-sm font-semibold text-white sm:block">
+              OUR BRANCHES
+            </Link>
+            <button
+              type="button"
+              className="flex h-11 w-11 items-center justify-center rounded-sm border border-gray-300 text-2xl text-gray-800 lg:hidden"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="primary-navigation"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              <span aria-hidden="true">{mobileMenuOpen ? '×' : '☰'}</span>
+            </button>
+          </div>
         </div>
       </header>
-      <nav className='w-full bg-red-600 text-white'>
-        <ul className='flex w-full items-center justify-center gap-4 list-none'>
+      <nav id="primary-navigation" className={`w-full bg-red-600 text-white ${mobileMenuOpen ? 'block' : 'hidden lg:block'}`}>
+        <ul className='mx-auto flex w-full max-w-7xl flex-col items-stretch list-none lg:flex-row lg:items-center lg:justify-center'>
           {links.map(({ href, label }) => {
             const isActive = pathname === href
 
@@ -110,9 +120,10 @@ const Navbar = () => {
                 <Link
                   href={href}
                   aria-current={isActive ? 'page' : undefined}
-                  className={` tracking-wide font-semibold block px-10 py-3 transition-colors ${
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`tracking-wide font-semibold block px-5 py-3 text-center transition-colors lg:px-10 ${
                     isActive ? 'bg-red-500/80' : 'hover:bg-red-500/40'
-                  }`} id='Link'
+                  }`}
                 >
                   {label}
                 </Link>
