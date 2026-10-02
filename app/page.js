@@ -94,7 +94,7 @@ export default function Home() {
             const Icon = stat.icon;
 
             return (
-              <div key={stat.label} className="flex min-w-0 flex-col items-center text-center">
+              <div key={stat.label} className="flex min-w-0 flex-col items-center text-center pl-25">
                 <Icon className="mb-3 h-7 w-7 sm:mb-4 sm:h-9 sm:w-9" aria-hidden="true" />
                 <div className="whitespace-nowrap text-3xl font-semibold leading-none sm:text-5xl">
                   <CountUp
@@ -124,15 +124,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap pt-12 flex-1 items-center justify-center w-full gap-5 rounded-xl py-0">
             {profileTests.map((test) => (
               <article
                 key={test.text}
                 className="group relative isolate flex aspect-[4/3] min-h-[220px] items-end overflow-hidden rounded-sm bg-gray-800 bg-cover bg-center p-5 text-white sm:min-h-[250px]"
                 style={{ backgroundImage: `url('${test.url}')` }}
               >
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/20 to-transparent transition-colors group-hover:from-black/90" />
-                <h3 className="max-w-[18rem] text-xl font-bold leading-tight drop-shadow sm:text-2xl">
+                <div className="absolute inset-0  bg-gradient-to-t from-black/85 via-black/20 to-transparent transition-colors group-hover:from-black/90" />
+                <h3 className="max-w-[18rem] text-xl font-bold  drop-shadow sm:text-2xl">
                   {test.text}
                 </h3>
               </article>
