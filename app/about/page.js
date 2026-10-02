@@ -1,6 +1,7 @@
 import React from 'react'
 
 const page = () => {
+  
   return (
     <>
     <div 
@@ -33,5 +34,10 @@ Sindlab is ISO <span className='font-bold text-gray-500'>9001:2015</span> certif
   </>
   )
 }
+
+export const metadata = {
+  title: 'About - Sindlab Diagnostics',
+  description: 'About page',
+};
 
 export default page

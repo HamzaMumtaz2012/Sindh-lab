@@ -152,4 +152,9 @@ const page = () => {
   );
 };
 
+export const metadata = {
+  title: 'Contact - Sindlab Diagnostics',
+  description: 'Contact page',
+};
+
 export default page;

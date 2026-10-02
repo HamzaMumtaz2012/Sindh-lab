@@ -64,4 +64,9 @@ branches.map((branch , index)=>{
   )
 }
 
+export const metadata = {
+  title: 'Branches - Sindlab Diagnostics',
+  description: 'Branches page',
+};
+
 export default page 

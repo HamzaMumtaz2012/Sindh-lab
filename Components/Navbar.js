@@ -49,8 +49,8 @@ const Navbar = () => {
             <img src="/logo.webp" alt="Sindlab logo" className="h-[60px] w-auto object-contain xl:h-[80px]" />
           </div>
 
-          <div className="order-3 flex w-full flex-wrap items-center justify-center gap-x-6 gap-y-4 lg:order-none lg:w-auto lg:flex-1 xl:gap-8">
-            <div className="flex items-start gap-3">
+          <div className="order-3 flex w-full flex-wrap items-center text-center  justify-center gap-x-6 gap-y-4 lg:order-none lg:w-auto lg:flex-1 xl:gap-8">
+            <div className="flex items-center justify-center gap-3">
               <span className="mt-1 flex h-7 w-7 items-center justify-center text-[#2d2d2d]">
                 <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current stroke-[1.8]" aria-hidden="true">
                   <path d="M12 21s6-5.7 6-11a6 6 0 1 0-12 0c0 5.3 6 11 6 11Zm0-8.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
