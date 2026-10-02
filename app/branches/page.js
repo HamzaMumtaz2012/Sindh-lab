@@ -1,4 +1,5 @@
 import React from 'react'
+import PageBanner from '../../Components/PageBanner'
 
 const page = () => {
     const branches = [
@@ -35,22 +36,15 @@ const page = () => {
     ]
   return (
     <>
-       <div 
-  className=" py-60 flex flex-col justify-center relative px-50 " 
-
->
-
-      <h1 className='text-red-700 text-5xl absolute bottom-40 font-bold text-gray-600'>Branches</h1>
-      <samp className='text-xl absolute bottom-28 font-medium ml-0.5 text-gray-500'>Home &gt; Branches</samp>
-    </div>
+            <PageBanner title="Branches" />
     <div className='text-center'>
-        <samp className='text-gray-600 text-3xl font-medium font-sans'>Find a Branch </samp>
-        <div className='my-10'>
+                <h2 className='text-gray-600 text-2xl font-medium font-sans sm:text-3xl'>Find a Branch</h2>
+                <div className='mx-auto my-8 grid w-full max-w-5xl grid-cols-1 gap-2 px-5 sm:px-8 md:grid-cols-2'>
             
         {
 branches.map((branch , index)=>{
     return(
-<div className='relative mx-auto flex w-[60vw] items-center justify-center bg-red-600 py-3 text-white mt-2' key={index}>
+<div className='relative flex min-h-12 items-center justify-center bg-red-600 px-10 py-3 text-white' key={index}>
 
             <span className='absolute left-4 text-2xl text-gray-600 bg-white px-2 '>&#43;</span>
             <span>{branch.text}</span>

@@ -1,4 +1,5 @@
 import React from 'react'
+import PageBanner from '../../Components/PageBanner'
 
 const articles = [
   { title: 'Polio', date: 'October 19, 2022', text: 'Eradicating polio and making the world completely free of this incurable disease has been one of the most ambitious global health goals set in history.', image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=500&q=80' },
@@ -10,25 +11,18 @@ const articles = [
 
 const page = () => (
     <>
-     <div 
-  className=" py-60 flex flex-col justify-center relative px-50 " 
-
->
-
-      <h1 className='text-red-700 text-5xl absolute bottom-40 font-bold text-gray-600'>Articles</h1>
-      <samp className='text-xl absolute bottom-28 font-medium ml-0.5 text-gray-500'>Home &gt; Articles</samp>
-    </div>
-  <main className="min-h-screen bg-white px-4 py-[10px] font-sans text-[#091437]">
-    <section className="mx-auto w-full max-w-[700px] space-y-[13px] mt-10 " aria-label="Health articles">
+    <PageBanner title="Articles" />
+  <main className="bg-white px-5 py-8 font-sans text-[#091437] sm:px-8 sm:py-12">
+    <section className="mx-auto w-full max-w-4xl space-y-8" aria-label="Health articles">
       {articles.map((article) => (
-        <article key={article.title} className="flex h-[199px] gap-5 my-10">
-          <img src={article.image} alt="" className="h-[199px] w-[250px] shrink-0 border-r border-red-500 object-cover" />
+        <article key={article.title} className="flex flex-col gap-4 border-b border-gray-200 pb-8 sm:flex-row sm:gap-5">
+          <img src={article.image} alt="" className="h-52 w-full shrink-0 border-b-2 border-red-500 object-cover sm:h-44 sm:w-56 sm:border-b-0 sm:border-r-2" />
           <div className="min-w-0 flex-1">
-            <h2 className="border-b border-gray-200 pb-[9px] text-2xl font-normal leading-[22px]">{article.title}</h2>
-            <div className="mt-[5px] flex items-center gap-1 text-lg text-gray-400">
+            <h2 className="border-b border-gray-200 pb-2 text-xl font-normal leading-tight sm:text-2xl">{article.title}</h2>
+            <div className="mt-2 flex flex-wrap items-center gap-1 text-sm text-gray-400 sm:text-base">
               <span aria-hidden="true">◷</span><time>{article.date}</time><span className="ml-1 text-red-500">♡</span><span className="text-gray-500">1</span>
             </div>
-            <p className="mt-[7px] text-lg leading-[25px] text-[#25334f]">{article.text}</p>
+            <p className="mt-2 text-base leading-6 text-[#25334f] sm:text-lg">{article.text}</p>
           </div>
         </article>
       ))}

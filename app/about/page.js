@@ -1,19 +1,13 @@
 import React from 'react'
+import PageBanner from '../../Components/PageBanner'
 
 const page = () => {
   
   return (
     <>
-    <div 
-  className="bg-cover bg-center py-60 flex flex-col justify-center relative px-50 " 
-  style={{ backgroundImage: "url('/about.png')" }}
->
-
-      <h1 className='text-red-700 text-5xl absolute bottom-40 font-bold text-gray-600'>About Us </h1>
-      <samp className='text-xl absolute bottom-28 font-medium ml-0.5 text-gray-500'>Home &gt; About</samp>
-    </div>
-    <div className='flex justify-center items-center py-20'>
-      <div className="first w-full mx-20 text-xl font-sans tracking-wider clip leading-10 ">
+    <PageBanner title="About Us" image="/about.png" />
+    <div className='mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-20'>
+      <div className="text-base font-sans leading-8 sm:text-lg">
         <p>
 <span className='font-bold text-gray-500'> Welcome to Sindlab </span> - a pioneer in clinical diagnostics with a legacy spanning over four decades
 
@@ -27,8 +21,8 @@ We believe in providing the highest level of service and continuous improvement 
 
 Sindlab is ISO <span className='font-bold text-gray-500'>9001:2015</span> certified for quality management systems</p>
       </div>
-      <div className="second w-full">
-        <img className='h-90' src="aboutTwo.webp" alt="" />
+      <div>
+        <img className='h-auto max-h-[420px] w-full object-cover' src="/aboutTwo.webp" alt="Sindlab diagnostic services" />
       </div>
     </div>
   </>

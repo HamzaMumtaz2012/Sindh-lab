@@ -1,18 +1,12 @@
 import React from 'react';
+import PageBanner from '../../Components/PageBanner'
 
 const page = () => {
   return (
   <>
-      <div 
-  className=" py-60 flex flex-col justify-center relative px-50 " 
-
->
-
-      <h1 className='text-red-700 text-5xl absolute bottom-40 font-bold text-gray-600'>Contact</h1>
-      <samp className='text-xl absolute bottom-28 font-medium ml-0.5 text-gray-500'>Home &gt; Contact</samp>
-    </div>
+      <PageBanner title="Contact" />
     
-    <div className="min-h-screen bg-[#f5f5f5] text-[#222b45] px-6 py-16">
+    <div className="min-h-screen bg-[#f5f5f5] px-5 py-10 text-[#222b45] sm:px-8 sm:py-14 lg:px-12 lg:py-16">
       <div className="max-w-6xl mx-auto">
         <div className="mb-10 flex justify-center">
           <div className="text-[16px] sm:text-[18px] font-medium text-gray-500 tracking-wide text-center">
@@ -21,9 +15,9 @@ const page = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center items-start gap-16 lg:gap-24">
+        <div className="flex flex-col items-start justify-center gap-10 lg:flex-row lg:gap-16">
           <div className="w-full lg:w-[42%]">
-            <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-[#1e293b] mb-8">
+              <h1 className="mb-8 text-4xl font-black tracking-tight text-[#1e293b] sm:text-5xl lg:text-6xl">
               Sindlab
             </h1>
 
